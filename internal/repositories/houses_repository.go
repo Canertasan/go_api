@@ -6,8 +6,14 @@ type HousesRepository struct {
 	Houses []models.House
 }
 
-func NewHousesRepository() *HousesRepository {
+func newHousesRepository() *HousesRepository {
 	return &HousesRepository{}
+}
+
+var HousesRepo *HousesRepository
+
+func init() {
+	HousesRepo = newHousesRepository()
 }
 
 func (r *HousesRepository) GetByID(id string) *models.House {

@@ -4,6 +4,7 @@ import (
 	"encoding/json"
 	"go-api/internal/models"
 	"go-api/internal/repositories"
+
 	"net/http"
 
 	"github.com/go-chi/chi"
@@ -13,8 +14,8 @@ type housesController struct {
 	repo *repositories.HousesRepository
 }
 
-func NewHousesController(repo *repositories.HousesRepository) *housesController {
-	return &housesController{repo: repo}
+func NewHousesController() *housesController {
+	return &housesController{repo: repositories.HousesRepo}
 }
 
 func (h *housesController) Get(w http.ResponseWriter, req *http.Request) {
