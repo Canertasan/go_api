@@ -3,20 +3,17 @@ package server
 import (
 	"fmt"
 	"go-api/internal/controllers"
-	"go-api/internal/repository"
+	"go-api/internal/repositories"
 	"net/http"
 
 	"github.com/go-chi/chi/v5"
 	"github.com/go-chi/chi/v5/middleware"
 )
 
-func SetupRoutes() *chi.Mux {
+func SetupRoutes(repo *repositories.HousesRepository) *chi.Mux {
 	r := chi.NewRouter()
 	r.Use(middleware.Logger)
 	r.Use(middleware.StripSlashes)
-
-	// Create a new repository
-	repo := repository.NewHousesRepository()
 
 	housesController := controllers.NewHousesController(repo)
 

@@ -3,17 +3,17 @@ package controllers
 import (
 	"encoding/json"
 	"go-api/internal/models"
-	"go-api/internal/repository"
+	"go-api/internal/repositories"
 	"net/http"
 
 	"github.com/go-chi/chi"
 )
 
 type housesController struct {
-	repo *repository.HousesRepository
+	repo *repositories.HousesRepository
 }
 
-func NewHousesController(repo *repository.HousesRepository) *housesController {
+func NewHousesController(repo *repositories.HousesRepository) *housesController {
 	return &housesController{repo: repo}
 }
 
